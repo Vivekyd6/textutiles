@@ -16,6 +16,12 @@ export default function TextForm(props) {
         setText(newText)
         props.showAlert("Converted to lowercase!", "success")
     }
+    
+    const handleTiClick = () => {
+        let newText = text.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())));
+        setText(newText);
+        props.showAlert("Converted to Title Case!", "success")
+    }
 
     const handleClearClick = () => {
         let newText = '';
@@ -34,8 +40,8 @@ export default function TextForm(props) {
         var text = document.getElementById("myBox");
         text.select();
         navigator.clipboard.writeText(text.value);
-        props.showAlert("Copied to clipboard", "success")
-        document.getSelection().removeAllRange();  
+        document.getSelection().removeAllRanges();
+        props.showAlert("Copied to Clipboard!", "success");
     }
 
     const handleExtraSpaces = () => {
@@ -44,12 +50,16 @@ export default function TextForm(props) {
         props.showAlert("Extra spaces removed", "success")
     }
 
-    const handleTiClick = () => {
-        
+    const ReverseText = () => {
+        let spl = text.split(" ")
+        let rev = spl.reverse();
+        let join = rev.join(" ");
+        setText(join)
+        props.showAlert("Sentence is reversed!", "success")
     }
 
     const handleSeClick = () => {
-
+        props.showAlert("Converted to lowercase!", "success")
     }
 
 
@@ -82,7 +92,9 @@ export default function TextForm(props) {
                 <button className="btn btn-success mx-1 mb-3" disabled={text.length===0}  onClick={handleClearClick}>Clear Text</button>
                 <button className="btn btn-primary mx-1 mb-3" disabled={text.length===0}  onClick={handleCopy}>Copy Text</button>
                 <button className="btn btn-primary mx-1 mb-3" disabled={text.length===0}  onClick={handleUndo}>Undo</button>
+                
                 <button className="btn btn-success mx-1 mb-3" disabled={text.length===0}  onClick={handleRedo}>Redo</button>
+                <button className="btn btn-primary mx-1 mb-3" disabled={text.length === 0} onClick={ReverseText}>Reveres Sentence</button>
                 <button className="btn btn-success mx-1 mb-3" disabled={text.length===0}  onClick={handleExtraSpaces}>Remove Extra Spaces</button>
                
             </div>

@@ -17,7 +17,7 @@ function App() {
     })
     setTimeout(() => {
       setAlert(null);
-    }, 1500);
+    }, 1800);
   }
 
   const toggleMode = () => {
@@ -36,7 +36,6 @@ function App() {
     <>
      
       <Navbar title="Text Utiles" mode={mode} toggleMode={toggleMode} />
-
       <div>
         <Alert alert={alert}/>
       </div>
