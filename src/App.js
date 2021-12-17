@@ -3,7 +3,8 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React, { useState } from 'react';
 import Alert from './components/Alert';
-//import About from './components/About';
+
+
 
 function App() {
   const [mode, setMode] = useState('light'); // Whether dark mode is enabled or not
@@ -33,9 +34,9 @@ function App() {
   }
   return (
     <>
-      {/* <Navbar title="TextUtils" aboutText="About TextUtils" /> */}
-      {/* <Navbar/> */}
-      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+     
+      <Navbar title="Text Utiles" mode={mode} toggleMode={toggleMode} />
+
       <div>
         <Alert alert={alert}/>
       </div>
