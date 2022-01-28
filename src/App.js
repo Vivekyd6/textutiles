@@ -35,7 +35,7 @@ function App() {
   return (
     <>
      
-      <Navbar title="Text Utiles" mode={mode} toggleMode={toggleMode} />
+      <Navbar title=" VY Text Utiles" mode={mode} toggleMode={toggleMode} />
       <div>
         <Alert alert={alert}/>
       </div>
